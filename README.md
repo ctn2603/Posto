@@ -1,7 +1,7 @@
 # Posto
 Posto is looking to build a social media platform with authenticity at its core. With an innovative approach and unique features, Posto is creating social media for people who love real life.
 
-# Source Code
+### Source Code
 This is a big commercial project, which adopts to my team's privacy policy. Therefore, its source code is not published. Instead, in order to have an idea of my work, you can click the demo video below.
 
 ### Tech
