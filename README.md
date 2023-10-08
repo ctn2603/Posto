@@ -4,9 +4,8 @@ Posto is looking to build a social media platform with authenticity at its core.
 ### Source Code
 This is a commercial project, which adopts to my team's privacy policy. Therefore, its source code is not published. Instead, in order to have an idea of my work, you can click the demo video below.
 
-### Demo
+### Demo (made by my teammate)
 [Watch the Video](https://youtu.be/GiEf_VRIOiw)
-This video is made by my teammate.
 
 ### Tech
 Posto uses a number of open source projects to work properly:
