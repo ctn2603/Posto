@@ -4,13 +4,14 @@ Posto is looking to build a social media platform with authenticity at its core.
 ### Source Code
 This is a big commercial project, which adopts to my team's privacy policy. Therefore, its source code is not published. Instead, in order to have an idea of my work, you can click the demo video below.
 
+### Demo
+[Watch the Video](https://youtu.be/GiEf_VRIOiw)
+
 ### Tech
 Posto uses a number of open source projects to work properly:
 - [Node.js](https://nodejs.org/en/) - evented I/O for the backend
 - [Express](https://expressjs.com) - fast node.js network app framework
 - [Firebase](https://firebase.google.com) - mobile application development platform
 
-### Demo
-[Watch the Video](https://youtu.be/GiEf_VRIOiw)
 
 
