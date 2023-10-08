@@ -8,7 +8,6 @@ Posto uses a number of open source projects to work properly:
 - [Firebase](https://firebase.google.com) - mobile application development platform
 
 ### Demo
-[Watch the Video](https://www.youtube.com/watch?v=GiEf_VRIOiw&ab_channel=Niccol%C3%B2Senni)
-
+[![Watch the Video](https://img.youtube.com/vi/GiEf_VRIOiw/0.jpg)](https://youtu.be/GiEf_VRIOiw)
 
 
