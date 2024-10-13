@@ -1,0 +1,9 @@
+{
+    "database_names": {
+        "users": "beta_users",
+        "square_posts": "beta_square_posts",
+        "campus_posts": "beta_campus_posts",
+        "playground_posts": "beta_playground_posts",
+        "friends": "beta_friends"
+    }
+}

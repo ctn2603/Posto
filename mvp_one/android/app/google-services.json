@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "1042436692490",
+    "firebase_url": "https://posto-e4bc1-default-rtdb.firebaseio.com",
+    "project_id": "posto-e4bc1",
+    "storage_bucket": "posto-e4bc1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042436692490:android:1e027d40d4dc5448931df3",
+        "android_client_info": {
+          "package_name": "com.example.mvp_one"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1042436692490-0bttit4fb5j9useioh4gotp9p2kb3hb5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mvp_one",
+            "certificate_hash": "74905bc131deb8507caf9d5f95119cb5d61c8f7c"
+          }
+        },
+        {
+          "client_id": "1042436692490-9r35ptbc5dm1p01q28q9hkgj422islqg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mvp_one",
+            "certificate_hash": "aedd75da469bb0c79aa586dfb2850976e93cfe06"
+          }
+        },
+        {
+          "client_id": "1042436692490-mqf5isl2mprdosbj0di4407cjm5o3lpb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mvp_one",
+            "certificate_hash": "4bb5ef248f4078e405953ec963c7e0fb6a6dfa1a"
+          }
+        },
+        {
+          "client_id": "1042436692490-pf1n51uhh8trrisqkurjfv8lggf75b8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbI7s3oVkc3g4kTxnKtqd_HTnwpcw3zpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1042436692490-ed84uifqgngckmm20reetvaqmsf75irs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1042436692490-5mphiketaphenq86gvksurulubft5su4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.frontend"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

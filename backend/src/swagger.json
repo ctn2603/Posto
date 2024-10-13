@@ -1,0 +1,1075 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Posto APIs",
+        "description": "A comprehensive list of supported APIs by Posto"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "Posto Development Server"
+        },
+        {
+            "url": "https://reliable-sol-384720.wl.r.appspot.com",
+            "description": "Posto Production Server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Users",
+            "description": "APIs for users"
+        },
+        {
+            "name": "Square Posts",
+            "description": "APIs for square posts"
+        },
+        {
+            "name": "Campus Posts",
+            "description": "APIs for campus posts"
+        },
+        {
+            "name": "Playground Posts",
+            "description": "APIs for square posts"
+        }
+    ],
+    "paths": {
+        "/signup": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Sign up",
+                "requestBody": {
+                    "description": "User Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/signin": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Sign in",
+                "requestBody": {
+                    "description": "username, password",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/users/{pattern}": {
+            "parameters": [
+                {
+                    "name": "pattern",
+                    "in": "path",
+                    "required": true,
+                    "description": "The searched pattern",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users that match a specific pattern",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/email/{email}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get a user with a specific email",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "required": true,
+                        "description": "email",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/userid/{email}": {
+            "parameters": [
+                {
+                    "name": "email",
+                    "in": "path",
+                    "required": true,
+                    "description": "email",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get a user id with a specific email",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/onboard/{user id}": {
+            "parameters": [
+                {
+                    "name": "user id",
+                    "in": "path",
+                    "required": true,
+                    "description": "email",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Check if the user is onboard",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/acknowledge-campus/{user id}": {
+            "parameters": [
+                {
+                    "name": "user id",
+                    "in": "path",
+                    "required": true,
+                    "description": "user id",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Check if the user acknowledge campus",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/acknowledge-playground/{user id}": {
+            "parameters": [
+                {
+                    "name": "user id",
+                    "in": "path",
+                    "required": true,
+                    "description": "user id",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Check if the user acknowledge playground",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/post-status/{user id}": {
+            "parameters": [
+                {
+                    "name": "user id",
+                    "in": "path",
+                    "required": true,
+                    "description": "user id",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Check if the user has posted today",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/onboard": {
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Mark the user as onboarded",
+                "requestBody": {
+                    "description": "user id",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/acknowledged-campus": {
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "The user acknowledged the campus tab",
+                "requestBody": {
+                    "description": "user id",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/acknowledged-playground": {
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "The user acknowledged the playground tab",
+                "requestBody": {
+                    "description": "user id",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/post-status": {
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update user's post status",
+                "requestBody": {
+                    "description": "user id",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "has_posted_today": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/square/posts": {
+            "get": {
+                "tags": [
+                    "Square Posts"
+                ],
+                "summary": "Get all square posts",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/square/posts/{pagenum}": {
+            "get": {
+                "tags": [
+                    "Square Posts"
+                ],
+                "summary": "Get partial square posts",
+                "parameters": [
+                    {
+                        "name": "pagenum",
+                        "in": "path",
+                        "description": "pagenum",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/square/posts/{username}": {
+            "get": {
+                "tags": [
+                    "Square Posts"
+                ],
+                "summary": "Get all square posts from a username",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "description": "username",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/square/add-post": {
+            "post": {
+                "tags": [
+                    "Square Posts"
+                ],
+                "summary": "Add a post with image url, user id, and caption ",
+                "requestBody": {
+                    "description": "image url, user id, and caption",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "image_url": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "caption": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/square/add-like/{post id}": {
+            "patch": {
+                "tags": [
+                    "Square Posts"
+                ],
+                "summary": "Add a like to a user's post",
+                "parameters": [
+                    {
+                        "name": "post id",
+                        "in": "path",
+                        "description": "ID of the post",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/square/add-comment/{post id}": {
+            "patch": {
+                "tags": [
+                    "Square Posts"
+                ],
+                "summary": "Add a comment to the user's post",
+                "parameters": [
+                    {
+                        "name": "post id",
+                        "in": "path",
+                        "description": "ID of the post",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "user id and comment",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "comment": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/campus/posts": {
+            "get": {
+                "tags": [
+                    "Campus Posts"
+                ],
+                "summary": "Get all campus posts",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/campus/posts/{pagenum}": {
+            "get": {
+                "tags": [
+                    "Campus Posts"
+                ],
+                "summary": "Get partial campus posts",
+                "parameters": [
+                    {
+                        "name": "pagenum",
+                        "in": "path",
+                        "description": "pagenum",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/campus/posts/{username}": {
+            "get": {
+                "tags": [
+                    "Campus Posts"
+                ],
+                "summary": "Get all campus posts from a username",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "description": "username",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/campus/add-post": {
+            "post": {
+                "tags": [
+                    "Campus Posts"
+                ],
+                "summary": "Add a post with image url, user id, and caption ",
+                "requestBody": {
+                    "description": "image url, user id, and caption",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "image_url": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "caption": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/campus/add-like/{post id}": {
+            "patch": {
+                "tags": [
+                    "Campus Posts"
+                ],
+                "summary": "Add a like to a user's post",
+                "parameters": [
+                    {
+                        "name": "post id",
+                        "in": "path",
+                        "description": "ID of the post",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/campus/add-comment/{post id}": {
+            "patch": {
+                "tags": [
+                    "Campus Posts"
+                ],
+                "summary": "Add a comment to the user's campus post",
+                "parameters": [
+                    {
+                        "name": "post id",
+                        "in": "path",
+                        "description": "ID of the post",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "user id and comment",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "comment": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/playground/posts": {
+            "get": {
+                "tags": [
+                    "Playground Posts"
+                ],
+                "summary": "Get all campus posts",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/playground/posts/{pagenum}": {
+            "get": {
+                "tags": [
+                    "Playground Posts"
+                ],
+                "summary": "Get partial campus posts",
+                "parameters": [
+                    {
+                        "name": "pagenum",
+                        "in": "path",
+                        "description": "pagenum",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/playground/posts/{username}": {
+            "get": {
+                "tags": [
+                    "Playground Posts"
+                ],
+                "summary": "Get all campus posts from a username",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "description": "username",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/playground/add-post": {
+            "post": {
+                "tags": [
+                    "Playground Posts"
+                ],
+                "summary": "Add a post with image url, user id, and caption ",
+                "requestBody": {
+                    "description": "image url, user id, and caption",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "image_url": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "caption": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/playground/add-like/{post id}": {
+            "patch": {
+                "tags": [
+                    "Playground Posts"
+                ],
+                "summary": "Add a like to a user's post",
+                "parameters": [
+                    {
+                        "name": "post id",
+                        "in": "path",
+                        "description": "ID of the post",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/playground/add-comment/{post id}": {
+            "patch": {
+                "tags": [
+                    "Playground Posts"
+                ],
+                "summary": "Add a comment to the user's playground post",
+                "parameters": [
+                    {
+                        "name": "post id",
+                        "in": "path",
+                        "description": "ID of the post",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "user id and comment",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "comment": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        }
+    }
+}
